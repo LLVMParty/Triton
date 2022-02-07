@@ -49,6 +49,12 @@ Returns `8`
 - **CPUSIZE.QWORD_BIT**<br>
 Returns `64`
 
+- **CPUSIZE.FWORD**<br>
+Returns `10`
+
+- **CPUSIZE.FWORD_BIT**<br>
+Returns `80`
+
 - **CPUSIZE.DQWORD**<br>
 Returns `16`
 
@@ -82,6 +88,7 @@ namespace triton {
         xPyDict_SetItemString(cpuSizeDict, "WORD",        PyLong_FromUint32(triton::size::word));
         xPyDict_SetItemString(cpuSizeDict, "DWORD",       PyLong_FromUint32(triton::size::dword));
         xPyDict_SetItemString(cpuSizeDict, "QWORD",       PyLong_FromUint32(triton::size::qword));
+        xPyDict_SetItemString(cpuSizeDict, "FWORD",       PyLong_FromUint32(triton::size::fword));
         xPyDict_SetItemString(cpuSizeDict, "DQWORD",      PyLong_FromUint32(triton::size::dqword));
         xPyDict_SetItemString(cpuSizeDict, "QQWORD",      PyLong_FromUint32(triton::size::qqword));
         xPyDict_SetItemString(cpuSizeDict, "DQQWORD",     PyLong_FromUint32(triton::size::dqqword));
@@ -89,6 +96,7 @@ namespace triton {
         xPyDict_SetItemString(cpuSizeDict, "WORD_BIT",    PyLong_FromUint32(triton::bitsize::word));
         xPyDict_SetItemString(cpuSizeDict, "DWORD_BIT",   PyLong_FromUint32(triton::bitsize::dword));
         xPyDict_SetItemString(cpuSizeDict, "QWORD_BIT",   PyLong_FromUint32(triton::bitsize::qword));
+        xPyDict_SetItemString(cpuSizeDict, "FWORD_BIT",   PyLong_FromUint32(triton::bitsize::fword));
         xPyDict_SetItemString(cpuSizeDict, "DQWORD_BIT",  PyLong_FromUint32(triton::bitsize::dqword));
         xPyDict_SetItemString(cpuSizeDict, "QQWORD_BIT",  PyLong_FromUint32(triton::bitsize::qqword));
         xPyDict_SetItemString(cpuSizeDict, "DQQWORD_BIT", PyLong_FromUint32(triton::bitsize::dqqword));

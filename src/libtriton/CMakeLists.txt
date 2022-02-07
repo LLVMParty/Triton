@@ -14,6 +14,9 @@ else()
     set(PYTHON_SUFFIX .so)
 endif()
 
+# Enable preprocessor output
+# set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --save-temps")
+
 # Define all source files
 set(LIBTRITON_SOURCE_FILES
     api/api.cpp

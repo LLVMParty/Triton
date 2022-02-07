@@ -5,6 +5,7 @@
 import unittest
 
 from triton import ARCH, TritonContext
+from random import randrange
 
 
 class TestX86ConcreteRegisterValue(unittest.TestCase):
@@ -20,11 +21,11 @@ class TestX86ConcreteRegisterValue(unittest.TestCase):
 
     def test_all_registers(self):
         """Check all registers"""
-        self.assertEqual(len(self.ar), 116)
+        self.assertEqual(len(self.ar), 165)
 
     def test_parent_registers(self):
         """Check parent registers"""
-        self.assertEqual(len(self.pr), 95)
+        self.assertEqual(len(self.pr), 128)
 
     def test_set_get_concrete_value(self):
         """Check setting concrete values"""
@@ -61,6 +62,14 @@ class TestX86ConcreteRegisterValue(unittest.TestCase):
         for r in self.ar:
             self.assertEqual(self.Triton.getConcreteRegisterValue(r), 0)
 
+    def test_rand_set_get_concrete_value(self):
+        """Check setting concrete values"""
+        for _ in range(100):
+            for reg in self.ar:
+                v = randrange(0, reg.getBitvector().getMaxValue() + 1)
+                self.Triton.setConcreteRegisterValue(reg, v)
+                self.assertEqual(self.Triton.getConcreteRegisterValue(reg), v)
+
 class TestX8664ConcreteRegisterValue(unittest.TestCase):
 
     """Testing the X86_64 concrete value api."""
@@ -74,11 +83,11 @@ class TestX8664ConcreteRegisterValue(unittest.TestCase):
 
     def test_all_registers(self):
         """Check all registers"""
-        self.assertEqual(len(self.ar), 205)
+        self.assertEqual(len(self.ar), 254)
 
     def test_parent_registers(self):
         """Check parent registers"""
-        self.assertEqual(len(self.pr), 151)
+        self.assertEqual(len(self.pr), 200)
 
     def test_set_get_concrete_value(self):
         """Check setting concrete values"""
